@@ -4,113 +4,10 @@
 // ============================================================
 const ABLY_API_KEY = '';
 
-// ============================================================
-//  DATA BENDERA (50 negara)
-// ============================================================
-// flag = kode negara 2 huruf (ISO 3166-1 alpha-2) untuk flagcdn.com
-const FLAGS = [
-  { flag: 'id', name: 'Indonesia' },
-  { flag: 'us', name: 'Amerika Serikat' },
-  { flag: 'gb', name: 'Inggris' },
-  { flag: 'jp', name: 'Jepang' },
-  { flag: 'kr', name: 'Korea Selatan' },
-  { flag: 'cn', name: 'China' },
-  { flag: 'de', name: 'Jerman' },
-  { flag: 'fr', name: 'Prancis' },
-  { flag: 'it', name: 'Italia' },
-  { flag: 'es', name: 'Spanyol' },
-  { flag: 'br', name: 'Brasil' },
-  { flag: 'au', name: 'Australia' },
-  { flag: 'ca', name: 'Kanada' },
-  { flag: 'ru', name: 'Rusia' },
-  { flag: 'in', name: 'India' },
-  { flag: 'mx', name: 'Meksiko' },
-  { flag: 'sa', name: 'Arab Saudi' },
-  { flag: 'tr', name: 'Turki' },
-  { flag: 'nl', name: 'Belanda' },
-  { flag: 'se', name: 'Swedia' },
-  { flag: 'no', name: 'Norwegia' },
-  { flag: 'dk', name: 'Denmark' },
-  { flag: 'fi', name: 'Finlandia' },
-  { flag: 'pl', name: 'Polandia' },
-  { flag: 'pt', name: 'Portugal' },
-  { flag: 'gr', name: 'Yunani' },
-  { flag: 'ch', name: 'Swiss' },
-  { flag: 'at', name: 'Austria' },
-  { flag: 'be', name: 'Belgia' },
-  { flag: 'ar', name: 'Argentina' },
-  { flag: 'cl', name: 'Chile' },
-  { flag: 'co', name: 'Kolombia' },
-  { flag: 'pe', name: 'Peru' },
-  { flag: 've', name: 'Venezuela' },
-  { flag: 'za', name: 'Afrika Selatan' },
-  { flag: 'eg', name: 'Mesir' },
-  { flag: 'ng', name: 'Nigeria' },
-  { flag: 'ke', name: 'Kenya' },
-  { flag: 'ma', name: 'Maroko' },
-  { flag: 'th', name: 'Thailand' },
-  { flag: 'vn', name: 'Vietnam' },
-  { flag: 'ph', name: 'Filipina' },
-  { flag: 'my', name: 'Malaysia' },
-  { flag: 'sg', name: 'Singapura' },
-  { flag: 'pk', name: 'Pakistan' },
-  { flag: 'bd', name: 'Bangladesh' },
-  { flag: 'ir', name: 'Iran' },
-  { flag: 'iq', name: 'Irak' },
-  { flag: 'ua', name: 'Ukraina' },
-  { flag: 'cz', name: 'Ceko' },
-  { flag: 'hu', name: 'Hungaria' },
-  { flag: 'ro', name: 'Rumania' },
-  { flag: 'bg', name: 'Bulgaria' },
-  { flag: 'hr', name: 'Kroasia' },
-  { flag: 'sk', name: 'Slovakia' },
-  { flag: 'si', name: 'Slovenia' },
-  { flag: 'lt', name: 'Lithuania' },
-  { flag: 'lv', name: 'Latvia' },
-  { flag: 'ee', name: 'Estonia' },
-  { flag: 'is', name: 'Islandia' },
-  { flag: 'il', name: 'Israel' },
-  { flag: 'jo', name: 'Yordania' },
-  { flag: 'lb', name: 'Lebanon' },
-  { flag: 'kw', name: 'Kuwait' },
-  { flag: 'qa', name: 'Qatar' },
-  { flag: 'ae', name: 'Uni Emirat Arab' },
-  { flag: 'nz', name: 'Selandia Baru' },
-  { flag: 'pg', name: 'Papua Nugini' },
-  { flag: 'fj', name: 'Fiji' },
-  { flag: 'cu', name: 'Kuba' },
-  { flag: 'jm', name: 'Jamaika' },
-  { flag: 'pa', name: 'Panama' },
-  { flag: 'cr', name: 'Kosta Rika' },
-  { flag: 'gt', name: 'Guatemala' },
-  { flag: 'ec', name: 'Ekuador' },
-  { flag: 'bo', name: 'Bolivia' },
-  { flag: 'py', name: 'Paraguay' },
-  { flag: 'uy', name: 'Uruguay' },
-  { flag: 'dz', name: 'Aljazair' },
-  { flag: 'tn', name: 'Tunisia' },
-  { flag: 'ly', name: 'Libya' },
-  { flag: 'sd', name: 'Sudan' },
-  { flag: 'et', name: 'Ethiopia' },
-  { flag: 'gh', name: 'Ghana' },
-  { flag: 'ci', name: 'Pantai Gading' },
-  { flag: 'sn', name: 'Senegal' },
-  { flag: 'cm', name: 'Kamerun' },
-  { flag: 'mz', name: 'Mozambik' },
-  { flag: 'tz', name: 'Tanzania' },
-  { flag: 'ug', name: 'Uganda' },
-  { flag: 'zw', name: 'Zimbabwe' },
-  { flag: 'zm', name: 'Zambia' },
-  { flag: 'mm', name: 'Myanmar' },
-  { flag: 'kh', name: 'Kamboja' },
-  { flag: 'la', name: 'Laos' },
-  { flag: 'np', name: 'Nepal' },
-  { flag: 'lk', name: 'Sri Lanka' },
-  { flag: 'mv', name: 'Maladewa' },
-];
+// FLAGS di-load dari flags-data.js
 
 const AVATARS = ['😎','🦊','🐼','🦁','🐯','🦄','🐸','🦋','🐺','🦅','🐙','🦈'];
-const TIME_PER_QUESTION = 15; // detik
+const TIME_PER_QUESTION = 15;
 
 // ============================================================
 //  STATE
@@ -122,11 +19,13 @@ let myName = '';
 let myAvatar = '';
 let roomCode = '';
 let isHost = false;
-let players = {};       // { id: { name, avatar, score, answered } }
-let questions = [];     // array of { flag, name, options }
+let players = {};
+let questions = [];
 let currentQ = 0;
 let totalQ = 10;
+let gameMode = 'flag-to-name'; // 'flag-to-name' | 'name-to-flag'
 let timerInterval = null;
+let countdownInterval = null;
 let timeLeft = TIME_PER_QUESTION;
 let answered = false;
 let gameStarted = false;
@@ -222,8 +121,7 @@ async function createRoom() {
     localStorage.setItem('ably_api_key', apiKey);
     await initAbly(apiKey);
     await joinChannel(roomCode);
-
-    players[myId] = { name: myName, avatar: myAvatar, score: 0, answered: false };
+    players[myId] = { name: myName, avatar: myAvatar, score: 0, answered: false, isHost: true };
     publishPresence();
     showWaitingRoom();
   } catch (e) {
@@ -255,7 +153,6 @@ async function joinRoom() {
     localStorage.setItem('ably_api_key', apiKey);
     await initAbly(apiKey);
     await joinChannel(roomCode);
-
     players[myId] = { name: myName, avatar: myAvatar, score: 0, answered: false };
     publishPresence();
     showWaitingRoom();
@@ -269,13 +166,11 @@ async function joinRoom() {
 // ============================================================
 async function joinChannel(code) {
   channel = ably.channels.get('flaggame-' + code);
-
   channel.subscribe('presence', onPresenceMsg);
   channel.subscribe('game-start', onGameStart);
   channel.subscribe('next-question', onNextQuestion);
   channel.subscribe('game-end', onGameEnd);
   channel.subscribe('play-again', onPlayAgain);
-
   return new Promise((resolve) => setTimeout(resolve, 300));
 }
 
@@ -315,12 +210,10 @@ function renderPlayersList() {
       <span class="avatar">${p.avatar}</span>
       <span>${p.name}</span>
       ${p.isHost ? '<span class="badge-host">HOST</span>' : ''}
-      ${id === myId && !p.isHost ? '<span class="badge-you">KAMU</span>' : ''}
-      ${id === myId && p.isHost ? '<span class="badge-you">KAMU</span>' : ''}
+      ${id === myId ? '<span class="badge-you">KAMU</span>' : ''}
     `;
     ul.appendChild(li);
   });
-
   const count = Object.keys(players).length;
   document.getElementById('waiting-status').textContent =
     `${count} pemain di room · Butuh minimal 1 pemain untuk mulai`;
@@ -355,17 +248,11 @@ function onPresenceMsg(msg) {
     players[d.id] = { name: d.name, avatar: d.avatar, score: d.score || 0, answered: false, isHost: d.isHost };
     if (d.id !== myId) showToast(`${d.avatar} ${d.name} bergabung!`);
     renderPlayersList();
-
-    // If I'm host, re-broadcast my presence so new joiners know who's in
     if (isHost) {
       setTimeout(() => {
         channel.publish('presence', {
-          type: 'join',
-          id: myId,
-          name: myName,
-          avatar: myAvatar,
-          score: players[myId]?.score || 0,
-          isHost: true
+          type: 'join', id: myId, name: myName,
+          avatar: myAvatar, score: players[myId]?.score || 0, isHost: true
         });
       }, 500);
     }
@@ -387,21 +274,36 @@ function onPresenceMsg(msg) {
 // ============================================================
 //  GAME GENERATION (host only)
 // ============================================================
-function generateQuestions(count) {
+function generateQuestions(count, mode) {
   const shuffled = shuffle(FLAGS).slice(0, count);
   return shuffled.map(item => {
     const wrong = shuffle(FLAGS.filter(f => f.name !== item.name)).slice(0, 3);
-    const options = shuffle([item, ...wrong]);
-    return { flag: item.flag, answer: item.name, options: options.map(o => o.name) };
+    if (mode === 'flag-to-name') {
+      // Tampilkan gambar bendera, tebak nama negara
+      return {
+        mode: 'flag-to-name',
+        flag: item.flag,
+        answer: item.name,
+        options: shuffle([item.name, ...wrong.map(w => w.name)])
+      };
+    } else {
+      // Tampilkan nama negara, tebak gambar bendera
+      return {
+        mode: 'name-to-flag',
+        name: item.name,
+        answer: item.flag,
+        options: shuffle([item.flag, ...wrong.map(w => w.flag)])
+      };
+    }
   });
 }
 
 function startGame() {
   totalQ = parseInt(document.getElementById('select-questions').value);
-  questions = generateQuestions(totalQ);
+  gameMode = document.getElementById('select-mode').value;
+  questions = generateQuestions(totalQ, gameMode);
   currentQ = 0;
 
-  // Reset scores
   Object.keys(players).forEach(id => {
     players[id].score = 0;
     players[id].answered = false;
@@ -410,8 +312,65 @@ function startGame() {
   channel.publish('game-start', {
     questions: questions,
     totalQ: totalQ,
+    gameMode: gameMode,
     players: players
   });
+}
+
+// ============================================================
+//  COUNTDOWN
+// ============================================================
+function preloadAllGameImages() {
+  const urls = new Set();
+
+  questions.forEach(q => {
+    if (q.mode === 'flag-to-name') {
+      // Preload gambar bendera soal
+      urls.add(`https://flagcdn.com/w160/${q.flag}.png`);
+      urls.add(`https://flagcdn.com/w320/${q.flag}.png`);
+    } else {
+      // Preload semua opsi gambar bendera
+      q.options.forEach(code => {
+        urls.add(`https://flagcdn.com/w160/${code}.png`);
+      });
+    }
+  });
+
+  urls.forEach(url => {
+    const img = new Image();
+    img.src = url;
+  });
+
+  console.log(`[Preload] ${urls.size} gambar bendera dimuat di background...`);
+}
+
+function showCountdown(callback) {
+  showScreen('countdown');
+
+  // Mulai preload semua gambar selama countdown berlangsung
+  preloadAllGameImages();
+
+  let count = 3;
+  const el = document.getElementById('countdown-number');
+  const sub = document.getElementById('countdown-sub');
+  el.textContent = count;
+  el.style.color = '#4fc3f7';
+  sub.textContent = gameMode === 'flag-to-name' ? '🏳️ Tebak nama negara!' : '🔤 Tebak benderanya!';
+
+  countdownInterval = setInterval(() => {
+    count--;
+    if (count > 0) {
+      el.textContent = count;
+      el.style.animation = 'none';
+      void el.offsetWidth;
+      el.style.animation = 'countPop 0.5s ease';
+    } else {
+      clearInterval(countdownInterval);
+      el.textContent = 'GO!';
+      el.style.color = '#66bb6a';
+      setTimeout(callback, 700);
+    }
+  }, 1000);
 }
 
 // ============================================================
@@ -421,35 +380,27 @@ function onGameStart(msg) {
   const d = msg.data;
   questions = d.questions;
   totalQ = d.totalQ;
+  gameMode = d.gameMode;
   currentQ = 0;
   gameStarted = true;
 
-  // Sync players from host
   if (!isHost) {
     players = d.players;
-    // Re-add myself if missing
     if (!players[myId]) {
       players[myId] = { name: myName, avatar: myAvatar, score: 0, answered: false };
     }
   }
 
-  // Reset scores
   Object.keys(players).forEach(id => {
     players[id].score = 0;
     players[id].answered = false;
   });
 
-  showScreen('game');
-  preloadFlags(0, 5); // preload 5 soal pertama langsung
-  showQuestion(currentQ);
-}
-
-// Preload gambar bendera beberapa soal ke depan
-function preloadFlags(fromIdx, count = 3) {
-  for (let i = fromIdx; i < Math.min(fromIdx + count, questions.length); i++) {
-    const img = new Image();
-    img.src = `https://flagcdn.com/w320/${questions[i].flag}.png`;
-  }
+  // Preload semua gambar dilakukan di showCountdown
+  showCountdown(() => {
+    showScreen('game');
+    showQuestion(currentQ);
+  });
 }
 
 function showQuestion(idx) {
@@ -458,54 +409,109 @@ function showQuestion(idx) {
 
   const q = questions[idx];
   document.getElementById('q-num').textContent = `${idx + 1}/${totalQ}`;
+  document.getElementById('feedback').className = 'feedback';
+  document.getElementById('feedback').textContent = '';
 
   const flagDiv = document.getElementById('flag-display');
+  const questionLabel = document.getElementById('question-label');
 
-  // Cek apakah gambar sudah di-cache browser
-  const cachedImg = new Image();
-  cachedImg.src = `https://flagcdn.com/w160/${q.flag}.png`;
+  if (q.mode === 'flag-to-name') {
+    // Tampilkan gambar bendera, pilihan berupa teks nama negara
+    questionLabel.textContent = 'Negara mana ini?';
+    flagDiv.style.display = 'block';
 
-  if (cachedImg.complete) {
-    // Sudah di-cache, langsung tampil
-    flagDiv.innerHTML = '';
-    cachedImg.style.cssText = 'width:160px;height:auto;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.5)';
-    cachedImg.alt = 'Bendera';
-    flagDiv.appendChild(cachedImg);
-  } else {
-    // Belum ada — tampilkan spinner TAPI timer tetap jalan
-    flagDiv.innerHTML = `<div class="spinner" style="width:50px;height:50px;margin:20px auto"></div>`;
-    cachedImg.onload = () => {
+    const cachedImg = new Image();
+    cachedImg.src = `https://flagcdn.com/w160/${q.flag}.png`;
+
+    if (cachedImg.complete) {
       flagDiv.innerHTML = '';
       cachedImg.style.cssText = 'width:160px;height:auto;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.5)';
       cachedImg.alt = 'Bendera';
       flagDiv.appendChild(cachedImg);
-    };
-    cachedImg.onerror = () => {
-      flagDiv.innerHTML = `<div style="font-size:1rem;color:#aaa;padding:20px">⚠️ Gagal load</div>`;
-    };
+    } else {
+      flagDiv.innerHTML = `<div class="spinner" style="width:50px;height:50px;margin:20px auto"></div>`;
+      cachedImg.onload = () => {
+        flagDiv.innerHTML = '';
+        cachedImg.style.cssText = 'width:160px;height:auto;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.5)';
+        cachedImg.alt = 'Bendera';
+        flagDiv.appendChild(cachedImg);
+      };
+      cachedImg.onerror = () => {
+        flagDiv.innerHTML = `<div style="color:#aaa;padding:20px">⚠️ Gagal load</div>`;
+      };
+    }
+
+    // Opsi: teks nama negara
+    const grid = document.getElementById('options-grid');
+    grid.innerHTML = '';
+    grid.className = 'options-grid';
+    q.options.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'option-btn';
+      btn.textContent = opt;
+      btn.onclick = () => submitAnswer(opt, q.answer, btn);
+      grid.appendChild(btn);
+    });
+
+    preloadFlags(idx + 1, 3);
+
+  } else {
+    // Mode name-to-flag: tampilkan nama negara, pilihan berupa gambar bendera
+    questionLabel.textContent = `Mana bendera ${q.name}?`;
+    flagDiv.style.display = 'none';
+
+    const grid = document.getElementById('options-grid');
+    grid.innerHTML = '';
+    grid.className = 'options-grid options-grid-flags';
+
+    q.options.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'option-btn option-btn-flag';
+      btn.dataset.code = opt;
+
+      const img = new Image();
+      img.src = `https://flagcdn.com/w160/${opt}.png`;
+      img.style.cssText = 'width:100%;height:auto;border-radius:6px;display:block';
+      img.alt = opt;
+      btn.appendChild(img);
+
+      btn.onclick = () => submitAnswer(opt, q.answer, btn);
+      grid.appendChild(btn);
+    });
+
+    preloadFlagsForQuestion(idx + 1, 4);
   }
 
-  // Preload 3 soal berikutnya di background
-  preloadFlags(idx + 1, 3);
-
-  document.getElementById('feedback').className = 'feedback';
-  document.getElementById('feedback').textContent = '';
-
-  // Options
-  const grid = document.getElementById('options-grid');
-  grid.innerHTML = '';
-  q.options.forEach(opt => {
-    const btn = document.createElement('button');
-    btn.className = 'option-btn';
-    btn.textContent = opt;
-    btn.onclick = () => submitAnswer(opt, q.answer, btn);
-    grid.appendChild(btn);
-  });
-
   renderLiveScoreboard();
-  startTimer(); // timer langsung jalan, tidak nunggu gambar
+  startTimer();
 }
 
+// ============================================================
+//  PRELOAD
+// ============================================================
+function preloadFlags(fromIdx, count = 3) {
+  for (let i = fromIdx; i < Math.min(fromIdx + count, questions.length); i++) {
+    if (questions[i].mode === 'flag-to-name') {
+      const img = new Image();
+      img.src = `https://flagcdn.com/w320/${questions[i].flag}.png`;
+    }
+  }
+}
+
+function preloadFlagsForQuestion(fromIdx, count = 4) {
+  for (let i = fromIdx; i < Math.min(fromIdx + 2, questions.length); i++) {
+    if (questions[i].options) {
+      questions[i].options.slice(0, count).forEach(code => {
+        const img = new Image();
+        img.src = `https://flagcdn.com/w160/${code}.png`;
+      });
+    }
+  }
+}
+
+// ============================================================
+//  TIMER
+// ============================================================
 function startTimer() {
   clearInterval(timerInterval);
   const timerEl = document.getElementById('timer');
@@ -519,20 +525,22 @@ function startTimer() {
     timeLeft--;
     timerEl.textContent = timeLeft;
     bar.style.width = (timeLeft / TIME_PER_QUESTION * 100) + '%';
-
     if (timeLeft <= 5) timerEl.className = 'timer urgent';
 
     if (timeLeft <= 0) {
       clearInterval(timerInterval);
       if (!answered) {
         answered = true;
-        // Show correct answer
         const q = questions[currentQ];
         document.querySelectorAll('.option-btn').forEach(btn => {
           btn.disabled = true;
-          if (btn.textContent === q.answer) btn.classList.add('correct');
+          const val = btn.dataset.code || btn.textContent;
+          if (val === q.answer) btn.classList.add('correct');
         });
-        showFeedback(false, '⏰ Waktu habis! Jawaban: ' + q.answer);
+        const answerLabel = q.mode === 'flag-to-name'
+          ? '⏰ Waktu habis! Jawaban: ' + q.answer
+          : '⏰ Waktu habis!';
+        showFeedback(false, answerLabel);
         broadcastScore(false);
         if (isHost) scheduleNextQuestion();
       }
@@ -540,6 +548,9 @@ function startTimer() {
   }, 1000);
 }
 
+// ============================================================
+//  ANSWER
+// ============================================================
 function submitAnswer(chosen, correct, btn) {
   if (answered) return;
   answered = true;
@@ -548,10 +559,10 @@ function submitAnswer(chosen, correct, btn) {
   const isCorrect = chosen === correct;
   const points = isCorrect ? Math.max(100, Math.round(timeLeft / TIME_PER_QUESTION * 500)) : 0;
 
-  // Disable all buttons, highlight
   document.querySelectorAll('.option-btn').forEach(b => {
     b.disabled = true;
-    if (b.textContent === correct) b.classList.add('correct');
+    const val = b.dataset.code || b.textContent;
+    if (val === correct) b.classList.add('correct');
   });
   if (!isCorrect) btn.classList.add('wrong');
 
@@ -559,7 +570,9 @@ function submitAnswer(chosen, correct, btn) {
     players[myId].score += points;
     showFeedback(true, `✅ Benar! +${points} poin`);
   } else {
-    showFeedback(false, `❌ Salah! Jawaban: ${correct}`);
+    const q = questions[currentQ];
+    const hint = q.mode === 'flag-to-name' ? ` Jawaban: ${correct}` : '';
+    showFeedback(false, `❌ Salah!${hint}`);
   }
 
   broadcastScore(true);
@@ -582,7 +595,6 @@ function broadcastScore(hasAnswered) {
 }
 
 function scheduleNextQuestion() {
-  // Wait 3 seconds then move to next
   setTimeout(() => {
     currentQ++;
     if (currentQ >= totalQ) {
@@ -595,15 +607,13 @@ function scheduleNextQuestion() {
 
 function onNextQuestion(msg) {
   currentQ = msg.data.index;
-  // Reset answered state for all players
   Object.keys(players).forEach(id => players[id].answered = false);
   showQuestion(currentQ);
 }
 
 function onGameEnd(msg) {
   clearInterval(timerInterval);
-  const scores = msg.data.scores;
-  showResult(scores);
+  showResult(msg.data.scores);
 }
 
 // ============================================================
@@ -629,18 +639,15 @@ function renderLiveScoreboard() {
 }
 
 // ============================================================
-//  RESULT SCREEN
+//  RESULT
 // ============================================================
 function showResult(scores) {
   showScreen('result');
 
-  // Podium (top 3)
   const podium = document.getElementById('podium');
   const top3 = scores.slice(0, 3);
-  // Order: 2nd, 1st, 3rd for visual podium
   const podiumOrder = [top3[1], top3[0], top3[2]].filter(Boolean);
   const medals = ['🥈', '🥇', '🥉'];
-  const podiumRanks = [2, 1, 3];
 
   podium.innerHTML = podiumOrder.map((p, i) => `
     <div class="podium-item">
@@ -651,7 +658,6 @@ function showResult(scores) {
     </div>
   `).join('');
 
-  // Full list
   const ul = document.getElementById('final-scores');
   const rankEmoji = ['🥇', '🥈', '🥉'];
   ul.innerHTML = scores.map((p, i) => `
@@ -666,7 +672,6 @@ function showResult(scores) {
 
 function playAgain() {
   if (isHost) {
-    // Reset and go back to waiting room
     Object.keys(players).forEach(id => {
       players[id].score = 0;
       players[id].answered = false;
@@ -696,20 +701,16 @@ function backToLobby() {
 //  INIT
 // ============================================================
 window.addEventListener('DOMContentLoaded', () => {
-  // Selalu tampilkan form API key, cek apakah sudah tersimpan di localStorage
   const saved = localStorage.getItem('ably_api_key');
   if (!saved) {
     document.getElementById('config-notice').style.display = 'block';
     document.getElementById('apikey-group').style.display = 'block';
   }
-  // Kalau sudah tersimpan, tetap tampilkan field tapi isi dengan placeholder
-  // sehingga user tahu key sudah ada
   if (saved) {
     document.getElementById('apikey-group').style.display = 'block';
-    document.getElementById('input-apikey').placeholder = 'API Key ';
+    document.getElementById('input-apikey').placeholder = '✅ API Key tersimpan (kosongkan untuk pakai yang lama)';
   }
 
-  // Enter key support
   document.getElementById('input-room').addEventListener('keyup', e => {
     if (e.key === 'Enter') joinRoom();
   });
