@@ -416,7 +416,6 @@ function showQuestion(idx) {
   const questionLabel = document.getElementById('question-label');
 
   if (q.mode === 'flag-to-name') {
-    // Tampilkan gambar bendera, pilihan berupa teks nama negara
     questionLabel.textContent = 'Negara mana ini?';
     flagDiv.style.display = 'block';
 
@@ -456,7 +455,7 @@ function showQuestion(idx) {
     preloadFlags(idx + 1, 3);
 
   } else {
-    // Mode name-to-flag: tampilkan nama negara, pilihan berupa gambar bendera
+    // Mode name-to-flag
     questionLabel.textContent = `Mana bendera ${q.name}?`;
     flagDiv.style.display = 'none';
 
@@ -708,7 +707,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   if (saved) {
     document.getElementById('apikey-group').style.display = 'block';
-    document.getElementById('input-apikey').placeholder = '✅ API Key tersimpan (kosongkan untuk pakai yang lama)';
+    document.getElementById('input-apikey').placeholder = 'Masukan Api Key)';
   }
 
   document.getElementById('input-room').addEventListener('keyup', e => {
